@@ -212,7 +212,7 @@ jobs:
           max_attempts: 3
           shell: bash
           command: |
-            pnpm run test.unit || (rm -rf ./tmp && mkdir -p ./tmp && exit 1)
+            pnpm run test || (rm -rf ./tmp && mkdir -p ./tmp && exit 1)
             rm -rf ./tmp && mkdir -p ./tmp
 
       - name: Test Electron Windows/MacOS
@@ -308,7 +308,7 @@ jobs:
       - name: Install Yarn Latest
         if: matrix.node-version == 22
         run: |
-          npm i -g yarn@latest
+          npm i -g @yarnpkg/cli-dist@latest
 
       - name: Install Pnpm 5
         if: matrix.node-version == 10
